@@ -1,0 +1,42 @@
+.sales {
+    margin-bottom: 7rem;
+}
+
+.sales__wrapper {
+    padding-bottom: 7rem;
+    border-bottom: 1px solid #999;
+}
+
+.sales__top {
+    margin-bottom: 6rem;
+}
+
+.sales__bottom {
+    text-align: center;
+}
+
+.sales__items {
+    display: flex;
+    column-gap: 3rem;
+    text-align: left;
+    margin-bottom: 6rem;
+}
+
+.sales__items > div {
+    flex: 1 1 270px;
+}
+
+/* ========================================== */
+
+@media (max-width: 1182px) {
+}
+
+@media (max-width: 993px) {
+    .sales__items {
+        flex-wrap: wrap;
+        row-gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+}
