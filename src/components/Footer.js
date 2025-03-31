@@ -28,70 +28,50 @@ function Footer() {
                         <div className="footer__column">
                             <div className="footer__column-title">Support</div>
                             <ul className="footer__list">
-                                <li className="footer__list-item">
-                                    <span className="footer__list-link footer__text">London, United Kingdom</span>
-                                </li>
-                                <li className="footer__list-item">
-                                    <span className="footer__list-link footer__text">exclusive@gmail.com</span>
-                                </li>
-                                <li className="footer__list-item">
-                                    <span className="footer__list-link footer__text">+88015-88888-9999</span>
-                                </li>
+                                {[
+                                    ['London, United Kingdom', null],
+                                    ['exclusive@gmail.com', null],
+                                    ['+88015-88888-9999', null],
+                                ].map((item, i) => (
+                                    <li key={i} className="footer__list-item">
+                                        <span className="footer__list-link footer__text">{item[0]}</span>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                         <div className="footer__column">
                             <div className="footer__column-title">Account</div>
                             <ul className="footer__list">
-                                <li className="footer__list-item">
-                                    <a href="#" className="footer__list-link footer__text">
-                                        My Account
-                                    </a>
-                                </li>
-                                <li className="footer__list-item">
-                                    <a href="#" className="footer__list-link footer__text">
-                                        Login / Register
-                                    </a>
-                                </li>
-                                <li className="footer__list-item">
-                                    <a href="#" className="footer__list-link footer__text">
-                                        Cart
-                                    </a>
-                                </li>
-                                <li className="footer__list-item">
-                                    <a href="#" className="footer__list-link footer__text">
-                                        Wishlist
-                                    </a>
-                                </li>
-                                <li className="footer__list-item">
-                                    <a href="#" className="footer__list-link footer__text">
-                                        Shop
-                                    </a>
-                                </li>
+                                {[
+                                    ['My Account', '#'],
+                                    ['Login / Register', '#'],
+                                    ['Cart', '#'],
+                                    ['Wishlist', '#'],
+                                    ['Shop', '#'],
+                                ].map((item, i) => (
+                                    <li key={i} className="footer__list-item">
+                                        <a href={item[1]} className="footer__list-link footer__text">
+                                            {item[0]}
+                                        </a>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                         <div className="footer__column">
                             <div className="footer__column-title">Quick Links</div>
                             <ul className="footer__list">
-                                <li className="footer__list-item">
-                                    <a href="#" className="footer__list-link footer__text">
-                                        Privacy Notice
-                                    </a>
-                                </li>
-                                <li className="footer__list-item">
-                                    <a href="#" className="footer__list-link footer__text">
-                                        Terms & Conditions
-                                    </a>
-                                </li>
-                                <li className="footer__list-item">
-                                    <a href="#" className="footer__list-link footer__text">
-                                        FAQ
-                                    </a>
-                                </li>
-                                <li className="footer__list-item">
-                                    <a href="#" className="footer__list-link footer__text">
-                                        Contact
-                                    </a>
-                                </li>
+                                {[
+                                    ['Privacy Notice', '#'],
+                                    ['Terms & Conditions', '#'],
+                                    ['FAQ', '#'],
+                                    ['Contact', '#'],
+                                ].map((item, i) => (
+                                    <li key={i} className="footer__list-item">
+                                        <a href={item[1]} className="footer__list-link footer__text">
+                                            {item[0]}
+                                        </a>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                         <div className="footer__column">

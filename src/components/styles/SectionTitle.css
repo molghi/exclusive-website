@@ -28,6 +28,20 @@
     font-weight: 600;
 }
 
+.plain {
+    font-size: 2rem;
+    color: var(--black);
+    padding-left: 0;
+}
+.plain:after {
+    height: 0;
+}
+
+.plain-figure {
+    font-size: 2rem;
+    color: var(--black);
+}
+
 /* ====================================================== */
 
 @media (max-width: 768px) {

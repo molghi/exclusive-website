@@ -1,10 +1,11 @@
 import './styles/ProductItem.css';
 import heartIcon from '../icons/heart-regular.svg';
 import eyeIcon from '../icons/eye-regular.svg';
+import trashIcon from '../icons/trash-solid.svg';
 import Rating from 'react-rating';
 
 function ProductItem({ data }) {
-    const { id, image, name, priceFull, priceDiscounted, stars, reviews, label, labelType, bottomFlexed, colorChoice } = data;
+    const { id, image, name, priceFull, priceDiscounted, stars, reviews, label, labelType, bottomFlexed, colorChoice, isInWishlist, isInRecommended } = data;
     let labelClass = '';
     if (labelType === 'green') labelClass = ' label-new';
 
@@ -46,12 +47,22 @@ function ProductItem({ data }) {
                 </div>
                 <div className="product__add-cart">Add To Cart</div>
                 <div className="product__btns">
-                    <button className="product__btn">
-                        <img src={heartIcon} alt="Favorites" />
-                    </button>
-                    <button className="product__btn">
-                        <img src={eyeIcon} alt="Watch" />
-                    </button>
+                    {!isInWishlist ? (
+                        <>
+                            {!isInRecommended && (
+                                <button className="product__btn">
+                                    <img src={heartIcon} alt="Favorites" />
+                                </button>
+                            )}
+                            <button className="product__btn">
+                                <img src={eyeIcon} alt="Watch" />
+                            </button>
+                        </>
+                    ) : (
+                        <button className="product__btn" style={{ padding: '7px' }}>
+                            <img src={trashIcon} alt="Remove" />
+                        </button>
+                    )}
                 </div>
                 {label && <span className={`product__label${labelClass}`}>{label}</span>}
             </div>

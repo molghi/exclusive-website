@@ -1,0 +1,48 @@
+.wishlist {
+    margin: 8rem 0 12rem;
+}
+
+.wishlist__wrapper {
+}
+
+.wishlist__box {
+    margin-bottom: 6rem;
+}
+
+.wishlist__box-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    column-gap: 3rem;
+    margin-bottom: 6rem;
+}
+
+.wishlist__box-bottom {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+}
+
+.wishlist__recommended {
+}
+
+/* ================================================ */
+
+@media (max-width: 1182px) {
+}
+
+@media (max-width: 993px) {
+    .wishlist__box-bottom {
+        grid-template-columns: repeat(auto-fit, minmax(216px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 480px) {
+    .wishlist__box-top {
+        flex-direction: column;
+        row-gap: 1rem;
+    }
+}

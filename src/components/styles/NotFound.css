@@ -1,0 +1,39 @@
+.notfound {
+    margin: 5rem 0 14rem;
+}
+
+.notfound__wrapper {
+}
+
+.notfound__content {
+    text-align: center;
+    margin-top: 14rem;
+}
+
+.notfound__big-text {
+    font-size: 11rem;
+    margin-bottom: 4rem;
+    font-weight: medium;
+}
+
+.notfound__small-text {
+    font-size: 1.8rem;
+    margin-bottom: 8rem;
+}
+
+/* ==================================================================================== */
+
+@media (max-width: 1182px) {
+    .notfound__big-text {
+        font-size: 10rem;
+    }
+}
+@media (max-width: 480px) {
+    .notfound__big-text {
+        font-size: 7rem;
+    }
+    .notfound__small-text {
+        font-size: 1.6rem;
+        line-height: 1.5;
+    }
+}

@@ -5,7 +5,7 @@ import searchIcon from '../icons/magnifying-glass-solid.svg';
 import './styles/Header.css';
 import './styles/hamburgerMenu.css';
 
-function Header() {
+function Header({ activeListLink, isLoggedIn, inWishlist }) {
     const hamburgerEl = useRef();
     const columnToToggle1 = useRef();
     const columnToToggle2 = useRef();
@@ -41,26 +41,18 @@ function Header() {
                     <div ref={columnToToggle1} className="header__column">
                         <nav className="header__navbar">
                             <ul className="header__list">
-                                <li className="header__list-item">
-                                    <a href="#" className="header__list-link active">
-                                        Home
-                                    </a>
-                                </li>
-                                <li className="header__list-item">
-                                    <a href="#" className="header__list-link">
-                                        Contact
-                                    </a>
-                                </li>
-                                <li className="header__list-item">
-                                    <a href="#" className="header__list-link">
-                                        About
-                                    </a>
-                                </li>
-                                <li className="header__list-item">
-                                    <a href="#" className="header__list-link">
-                                        Sign Up
-                                    </a>
-                                </li>
+                                {[
+                                    ['Home', '#'],
+                                    ['Contact', '#'],
+                                    ['About', '#'],
+                                    ['Sign Up', '#'],
+                                ].map((item, i) => (
+                                    <li key={i} className="header__list-item">
+                                        <a href={item[1]} className={`header__list-link${item[0] === activeListLink ? ' active' : ''}`}>
+                                            {item[0]}
+                                        </a>
+                                    </li>
+                                ))}
                             </ul>
                         </nav>
                     </div>
@@ -72,14 +64,17 @@ function Header() {
                                     <img src={searchIcon} alt="Search" />
                                 </button>
                             </form>
-                            <div className="header__buttons">
-                                <button className="header__button header__favorites">
-                                    <img src={heartIcon} alt="Favorites" />
-                                </button>
-                                <button className="header__button header__cart">
-                                    <img src={cartIcon} alt="Cart" />
-                                </button>
-                            </div>
+                            {isLoggedIn && (
+                                <div className="header__buttons">
+                                    <button className="header__button header__favorites">
+                                        <img src={heartIcon} alt="Favorites" />
+                                        {inWishlist && inWishlist > 0 && <span className="header__favorites-number">{inWishlist}</span>}
+                                    </button>
+                                    <button className="header__button header__cart">
+                                        <img src={cartIcon} alt="Cart" />
+                                    </button>
+                                </div>
+                            )}
                         </div>
                     </div>
                     <div ref={hamburgerEl} onClick={toggleHamburgerMenu} className="header__hamburger-menu">

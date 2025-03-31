@@ -1,0 +1,27 @@
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    column-gap: 3rem;
+}
+
+.breadcrumbs__item {
+    color: #999;
+    font-weight: 300;
+    position: relative;
+    font-size: 1.4rem;
+}
+
+.breadcrumbs__item:after {
+    content: '/';
+    position: absolute;
+    top: 0;
+    right: -1.7rem;
+}
+
+.breadcrumbs__item:last-child {
+    color: #000;
+}
+
+.breadcrumbs__item:last-child:after {
+    content: '';
+}

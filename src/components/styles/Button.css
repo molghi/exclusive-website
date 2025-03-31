@@ -3,6 +3,7 @@
     border-radius: 5px;
     transition: all 0.3s;
     font-size: 1.6rem;
+    white-space: nowrap;
 }
 
 .button:hover {
@@ -12,6 +13,12 @@
 .button--accent {
     background-color: var(--redish);
     color: var(--white);
+}
+
+.button--white {
+    background-color: var(--white);
+    border: 2px solid silver;
+    color: var(--black);
 }
 
 /* ======================================================== */
