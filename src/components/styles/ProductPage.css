@@ -1,0 +1,13 @@
+.related {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 14rem;
+}
+
+@media (max-width: 993px) {
+    .related {
+        grid-template-columns: repeat(auto-fit, minmax(216px, 1fr));
+    }
+}

@@ -1,0 +1,250 @@
+.checkout {
+    margin: 8rem 0 14rem;
+}
+
+.checkout__wrapper {
+    margin-top: 8rem;
+}
+
+.checkout__title {
+    margin-bottom: 5rem;
+    font-size: 3.6rem;
+    font-weight: 500;
+}
+
+.checkout__columns {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 6rem;
+}
+
+.checkout__column:nth-child(1) {
+    flex: 0 1 47rem;
+}
+.checkout__column:nth-child(2) {
+    flex: 0 1 53rem;
+    margin-top: 3rem;
+}
+
+.checkout__input-box {
+    margin-bottom: 1.6rem;
+}
+
+.checkout__input-box label {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    row-gap: 0.8rem;
+}
+
+.checkout__input-box input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background-color: var(--input-bg);
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.checkout__input-box input:focus {
+    outline: 2px solid grey;
+    box-shadow: 0 0 10px grey;
+}
+
+.color-red {
+    color: red;
+}
+
+.checkout__check-box {
+    margin-top: 2.4rem;
+}
+
+.checkout__check-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    position: relative;
+}
+
+.checkout__check-input {
+    width: 2.5rem;
+    height: 2.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.checkout__check-input:checked ~ .shown-checkbox {
+    background-color: var(--redish);
+    border: 1px solid var(--redish);
+}
+.checkout__check-input:checked ~ .shown-checkbox:after {
+    content: '✔︎';
+    position: absolute;
+    top: 50%;
+    font-size: 1.9rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    color: #fff;
+}
+
+.shown-checkbox {
+    display: inline-block;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid #000;
+    position: relative;
+}
+
+.checkout__items {
+    margin-bottom: 4rem;
+}
+
+.checkout__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+
+.checkout__item-column {
+    display: flex;
+    align-items: center;
+    column-gap: 2rem;
+}
+
+.checkout__item-img {
+    max-width: 50px;
+}
+
+.checkout__item-img img {
+    max-width: 100%;
+}
+
+.checkout__item-name {
+}
+
+.checkout__item-price {
+}
+
+.checkout__total {
+    margin-bottom: 4rem;
+}
+
+.checkout__total-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid silver;
+    margin-bottom: 2.5rem;
+}
+
+.checkout__total-row-name {
+}
+
+.checkout__total-row-value {
+}
+
+.checkout__pay-choices {
+    margin-bottom: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+.checkout__pay-choice {
+    display: flex;
+    align-items: center;
+    column-gap: 1.6rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.checkout__pay-choice input {
+    width: 2.5rem;
+    height: 2.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.checkout__pay-choice input:checked ~ .shown-radiobtn:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-51%, -50%);
+    background-color: var(--redish);
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+}
+
+.shown-radiobtn {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid #000;
+    border-radius: 50%;
+    position: relative;
+}
+
+.checkout__pay-choice img {
+    margin-left: auto;
+}
+
+.checkout__coupon-box {
+    display: flex;
+    align-items: center;
+    column-gap: 2rem;
+    margin-bottom: 3.5rem;
+}
+
+.checkout__coupon-box input {
+    flex: 1 1 60%;
+    padding: 1.15rem;
+    border: 2px solid silver;
+    border-radius: 5px;
+}
+
+/* ================================================================================================ */
+
+@media (max-width: 1182px) {
+    .checkout__check-box {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 993px) {
+    .checkout__columns {
+        column-gap: 5rem;
+    }
+    .checkout__column:nth-child(2) {
+        max-width: 50%;
+    }
+    .checkout__coupon-box {
+        flex-wrap: wrap;
+        row-gap: 2rem;
+        margin-bottom: 4.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .checkout__columns {
+        flex-wrap: wrap;
+        row-gap: 5rem;
+    }
+    .checkout__column {
+        flex: 1 1 100% !important;
+        max-width: 100% !important;
+    }
+    .checkout__item {
+        column-gap: 5rem;
+    }
+}
+
+@media (max-width: 480px) {
+}

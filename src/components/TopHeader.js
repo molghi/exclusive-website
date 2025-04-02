@@ -11,9 +11,11 @@ function TopHeader() {
                     </div>
                     <div className="top-header__column">
                         <select name="language" id="language">
-                            <option value="english">English</option>
-                            <option value="french">French</option>
-                            <option value="german">German</option>
+                            {['English', 'French', 'German', 'Arabic', 'Chinese', 'Spanish', 'Hebrew', 'Turkish', 'Russian'].map((lang, i) => (
+                                <option key={i} value={lang.toLowerCase()}>
+                                    {lang}
+                                </option>
+                            ))}
                         </select>
                     </div>
                 </div>
