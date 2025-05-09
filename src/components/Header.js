@@ -1,11 +1,13 @@
 import { useRef, useEffect } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import cartIcon from '../icons/cart-shopping-solid.svg';
 import heartIcon from '../icons/heart-regular.svg';
 import searchIcon from '../icons/magnifying-glass-solid.svg';
+import userIcon from '../icons/user-solid.svg';
 import './styles/Header.css';
 import './styles/hamburgerMenu.css';
 
-function Header({ activeListLink, isLoggedIn, inWishlist }) {
+function Header({ activeListLink, isLoggedIn, inWishlist, inCart }) {
     const hamburgerEl = useRef();
     const columnToToggle1 = useRef();
     const columnToToggle2 = useRef();
@@ -34,23 +36,23 @@ function Header({ activeListLink, isLoggedIn, inWishlist }) {
             <div className="container">
                 <div className="header__wrapper">
                     <div className="header__column">
-                        <a href="#" className="header__logo logo">
+                        <Link to="/" className="header__logo logo">
                             Exclusive
-                        </a>
+                        </Link>
                     </div>
                     <div ref={columnToToggle1} className="header__column">
                         <nav className="header__navbar">
                             <ul className="header__list">
                                 {[
-                                    ['Home', '#'],
-                                    ['Contact', '#'],
-                                    ['About', '#'],
-                                    ['Sign Up', '#'],
+                                    ['Home', '/'],
+                                    ['Contact', '/contact'],
+                                    ['About', '/about'],
+                                    ['Sign Up', '/signup'],
                                 ].map((item, i) => (
                                     <li key={i} className="header__list-item">
-                                        <a href={item[1]} className={`header__list-link${item[0] === activeListLink ? ' active' : ''}`}>
+                                        <NavLink to={item[1]} className={({ isActive }) => (isActive ? 'active header__list-link' : 'header__list-link')}>
                                             {item[0]}
-                                        </a>
+                                        </NavLink>
                                     </li>
                                 ))}
                             </ul>
@@ -66,13 +68,31 @@ function Header({ activeListLink, isLoggedIn, inWishlist }) {
                             </form>
                             {isLoggedIn && (
                                 <div className="header__buttons">
-                                    <button className="header__button header__favorites">
+                                    <Link to="/wishlist" className="header__button header__favorites">
                                         <img src={heartIcon} alt="Favorites" />
                                         {inWishlist && inWishlist > 0 && <span className="header__favorites-number">{inWishlist}</span>}
-                                    </button>
-                                    <button className="header__button header__cart">
+                                    </Link>
+                                    <Link to="/cart" className="header__button header__cart">
                                         <img src={cartIcon} alt="Cart" />
-                                    </button>
+                                        {inCart && inCart > 0 && <span className="header__cart-number">{inCart}</span>}
+                                    </Link>
+                                    <div className="header__button header__user">
+                                        <img src={userIcon} alt="User" />
+                                        <ul className="header__user-dropdown">
+                                            <li>
+                                                <Link to="/account">My Profile</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="">My Orders</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="">My Settings</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="">Log Out</Link>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             )}
                         </div>

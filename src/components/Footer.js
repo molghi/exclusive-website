@@ -1,4 +1,5 @@
 import './styles/Footer.css';
+import { Link } from 'react-router-dom';
 import sendIcon from '../icons/paper-plane-regular.svg';
 import facebookIcon from '../icons/facebook-f-brands.svg';
 import twitterIcon from '../icons/twitter-brands.svg';
@@ -43,16 +44,16 @@ function Footer() {
                             <div className="footer__column-title">Account</div>
                             <ul className="footer__list">
                                 {[
-                                    ['My Account', '#'],
-                                    ['Login / Register', '#'],
-                                    ['Cart', '#'],
-                                    ['Wishlist', '#'],
-                                    ['Shop', '#'],
+                                    ['My Account', '/account'],
+                                    ['Login / Register', '/signup'],
+                                    ['Cart', '/cart'],
+                                    ['Wishlist', '/wishlist'],
+                                    ['Shop', ''],
                                 ].map((item, i) => (
                                     <li key={i} className="footer__list-item">
-                                        <a href={item[1]} className="footer__list-link footer__text">
+                                        <Link to={item[1]} className="footer__list-link footer__text">
                                             {item[0]}
-                                        </a>
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
@@ -61,15 +62,15 @@ function Footer() {
                             <div className="footer__column-title">Quick Links</div>
                             <ul className="footer__list">
                                 {[
-                                    ['Privacy Notice', '#'],
-                                    ['Terms & Conditions', '#'],
-                                    ['FAQ', '#'],
-                                    ['Contact', '#'],
+                                    ['Privacy Notice', ''],
+                                    ['Terms & Conditions', ''],
+                                    ['FAQ', ''],
+                                    ['Contact', '/contact'],
                                 ].map((item, i) => (
                                     <li key={i} className="footer__list-item">
-                                        <a href={item[1]} className="footer__list-link footer__text">
+                                        <Link to={item[1]} className="footer__list-link footer__text">
                                             {item[0]}
-                                        </a>
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
@@ -82,34 +83,34 @@ function Footer() {
                                     <img src={qrCodeImg} alt="QR Code" />
                                 </div>
                                 <div className="footer__stores">
-                                    <a href="#">
+                                    <Link to="">
                                         <img src={gstoreImg} alt="Google Store" />
-                                    </a>
-                                    <a href="#">
+                                    </Link>
+                                    <Link to="">
                                         <img src={appstoreImg} alt="App Store" />
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                             <ul className="footer__socials">
                                 <li>
-                                    <a href="#" className="footer__icon-btn">
+                                    <Link to="" className="footer__icon-btn">
                                         <img src={facebookIcon} alt="facebook" />
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="#" className="footer__icon-btn">
+                                    <Link to="" className="footer__icon-btn">
                                         <img src={twitterIcon} alt="twitter" />
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="#" className="footer__icon-btn">
+                                    <Link to="" className="footer__icon-btn">
                                         <img src={instagramIcon} alt="instagram" />
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="#" className="footer__icon-btn">
+                                    <Link to="" className="footer__icon-btn">
                                         <img src={linkedinIcon} alt="linkedin" />
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>

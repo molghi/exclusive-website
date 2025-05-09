@@ -1,4 +1,5 @@
 import './styles/Account.css';
+import { Link } from 'react-router-dom';
 import { useRef, useState } from 'react';
 import Breadcrumbs from './Breadcrumbs';
 import Button from './Button';
@@ -10,22 +11,22 @@ function Account() {
     const navigationData = [
         {
             sectionName: 'Manage My Account',
-            sectionLink: '#',
+            sectionLink: '',
             sectionLinks: [
-                ['My Profile', '#'],
-                ['Address Book', '#'],
-                ['My Payment Options', '#'],
+                ['My Profile', ''],
+                ['Address Book', ''],
+                ['My Payment Options', ''],
             ],
         },
         {
             sectionName: 'My Orders',
-            sectionLink: '#',
+            sectionLink: '',
             sectionLinks: [
-                ['My Returns', '#'],
-                ['My Cancelations', '#'],
+                ['My Returns', ''],
+                ['My Cancelations', ''],
             ],
         },
-        { sectionName: 'My Wishlist', sectionLink: '#' },
+        { sectionName: 'My Wishlist', sectionLink: '/wishlist' },
     ];
 
     const profileData = [
@@ -50,7 +51,12 @@ function Account() {
             <div className="container">
                 <div className="account__wrapper">
                     <div className="account__top">
-                        <Breadcrumbs data={['Home', 'My Account']} />
+                        <Breadcrumbs
+                            data={[
+                                ['Home', '/'],
+                                ['My Account', '/account'],
+                            ]}
+                        />
                         <div className="account__welcome">
                             Welcome, <span>Joe Schmoe</span>!
                         </div>
@@ -63,14 +69,14 @@ function Account() {
                             {navigationData.map((entry, i) => (
                                 <>
                                     <li className="account__navigation-section" key={i}>
-                                        <a href={entry.sectionLink}>{entry.sectionName}</a>
+                                        <Link to={entry.sectionLink}>{entry.sectionName}</Link>
                                         {entry.sectionLinks && entry.sectionLinks.length > 0 && (
                                             <ul className="account__navigation-sublist">
                                                 {entry.sectionLinks.map((sublinkEntry, j) => (
                                                     <li key={j}>
-                                                        <a href={sublinkEntry[1]} className={sublinkEntry[0] === 'My Profile' ? 'link-active' : ''}>
+                                                        <Link to={sublinkEntry[1]} className={sublinkEntry[0] === 'My Profile' ? 'link-active' : ''}>
                                                             {sublinkEntry[0]}
-                                                        </a>
+                                                        </Link>
                                                     </li>
                                                 ))}
                                             </ul>
@@ -84,7 +90,7 @@ function Account() {
                                 <div className="account__profile-title">Edit Your Profile</div>
                                 <div className="account__profile-box">
                                     {profileData.map((entry, i) => (
-                                        <div className="account__input-box">
+                                        <div key={i} className="account__input-box">
                                             <label htmlFor={`input-${i + 1}`}>{entry.title}</label>
                                             <input id={`input-${i + 1}`} type="text" value={entry.value} />
                                         </div>

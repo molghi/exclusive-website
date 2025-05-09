@@ -46,6 +46,15 @@
     opacity: 0.75;
 }
 
+.top-header__column button {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.top-header__column button:hover {
+    text-decoration: none;
+}
+
 /* ================================================================================================ */
 
 @media (max-width: 993px) {

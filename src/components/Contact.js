@@ -10,7 +10,12 @@ function Contact() {
     return (
         <section className="contact">
             <div className="container">
-                <Breadcrumbs data={['Home', 'Contact']} />
+                <Breadcrumbs
+                    data={[
+                        ['Home', '/'],
+                        ['Contact', '/contact'],
+                    ]}
+                />
                 <div className="contact__wrapper">
                     <div className="contact__info">
                         <div className="contact__box">

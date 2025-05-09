@@ -1,11 +1,22 @@
-import './styles/Categories.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/autoplay';
+import 'swiper/css/navigation';
 import SectionTitle from './SectionTitle';
-import item1Icon from '../icons/Category-CellPhone.svg';
-import item2Icon from '../icons/Category-Computer.svg';
-import item3Icon from '../icons/Category-SmartWatch.svg';
-import item4Icon from '../icons/Category-Camera.svg';
-import item5Icon from '../icons/Category-Headphone.svg';
-import item6Icon from '../icons/Category-Gamepad.svg';
+// import item1Icon from '../icons/Category-CellPhone.svg';
+// import item2Icon from '../icons/Category-Computer.svg';
+// import item3Icon from '../icons/Category-SmartWatch.svg';
+// import item4Icon from '../icons/Category-Camera.svg';
+// import item5Icon from '../icons/Category-Headphone.svg';
+// import item6Icon from '../icons/Category-Gamepad.svg';
+import { ReactComponent as item1Icon } from '../icons/Category-CellPhone.svg';
+import { ReactComponent as item2Icon } from '../icons/Category-Computer.svg';
+import { ReactComponent as item3Icon } from '../icons/Category-SmartWatch.svg';
+import { ReactComponent as item4Icon } from '../icons/Category-Camera.svg';
+import { ReactComponent as item5Icon } from '../icons/Category-Headphone.svg';
+import { ReactComponent as item6Icon } from '../icons/Category-Gamepad.svg';
+import './styles/Categories.css';
 
 function Categories() {
     const data = [
@@ -26,14 +37,47 @@ function Categories() {
                     </div>
                     <div className="categories__bottom">
                         <div className="categories__box">
-                            {data.map((entry) => (
-                                <div key={entry.id} className="categories__item">
-                                    <div className="categories__item-icon">
-                                        <img src={entry.image} alt="category icon" />
-                                    </div>
-                                    <div className="categories__item-name">{entry.name}</div>
-                                </div>
-                            ))}
+                            <Swiper
+                                spaceBetween={30}
+                                slidesPerView={5}
+                                modules={[Autoplay, Navigation]}
+                                autoplay={{ delay: 3000, disableOnInteraction: false }}
+                                loop={true}
+                                navigation={{
+                                    nextEl: '.swiper-button-next--categories',
+                                    prevEl: '.swiper-button-prev--categories',
+                                }}
+                                breakpoints={{
+                                    320: {
+                                        slidesPerView: 2,
+                                    },
+                                    480: {
+                                        slidesPerView: 3,
+                                    },
+                                    768: {
+                                        slidesPerView: 4,
+                                    },
+                                    992: {
+                                        slidesPerView: 5,
+                                    },
+                                }}
+                                className="mySwiper"
+                                // onSlideChange={() => console.log('slide change')}
+                                // onSwiper={(swiper) => console.log(swiper)}
+                            >
+                                {data.map((entry) => (
+                                    <SwiperSlide key={entry.id}>
+                                        <div className="categories__item">
+                                            <div className="categories__item-icon">
+                                                <entry.image />
+                                            </div>
+                                            <div className="categories__item-name">{entry.name}</div>
+                                        </div>
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
+                            <div className="swiper-button-prev swiper-button-prev--categories"></div>
+                            <div className="swiper-button-next swiper-button-next--categories"></div>
                         </div>
                     </div>
                 </div>

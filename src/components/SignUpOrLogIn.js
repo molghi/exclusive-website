@@ -11,7 +11,7 @@ function SignUpOrLogIn({ type }) {
     return (
         <section className="authorise">
             <div className="authorise__image-box">
-                <img src={bigImg} alt="big image" className="authorise__image" />
+                <img src={bigImg} alt="backdrop" className="authorise__image" />
             </div>
             <div className="container">
                 <div className="authorise__wrapper">
@@ -33,7 +33,7 @@ function SignUpOrLogIn({ type }) {
                             <div className={`authorise__form-btns${type === 'Log In' ? ' flex-row' : ''}`}>
                                 <button className="authorise__form-btn authorise__form-btn--action">{data[type].actionBtnText}</button>
                                 <button className={`authorise__form-btn${type === 'Sign Up' ? ' authorise__form-btn--white' : ' authorise__form-btn--underlined'}`}>
-                                    {type === 'Sign Up' && <img src={googleIcon} alt="google icon" />}
+                                    {type === 'Sign Up' && <img src={googleIcon} alt="google" />}
                                     <span>{data[type].secondBtnText}</span>
                                 </button>
                             </div>

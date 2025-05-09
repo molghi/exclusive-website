@@ -6,7 +6,12 @@ function Story() {
     return (
         <>
             <div className="container container--breadcrumbs">
-                <Breadcrumbs data={['Home', 'About']} />
+                <Breadcrumbs
+                    data={[
+                        ['Home', '/'],
+                        ['About', '/about'],
+                    ]}
+                />
             </div>
             <section className="story">
                 <div className="story__image-box">

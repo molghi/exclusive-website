@@ -78,8 +78,8 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: 6.2rem;
-    height: 6.2rem;
+    width: 8.5rem;
+    height: 8.5rem;
     background-color: var(--white);
     row-gap: 0.3rem;
     border-radius: 50%;
@@ -87,7 +87,7 @@
 
 .banner__timer-element-value {
     font-weight: 600;
-    font-size: 1.8rem;
+    font-size: 3rem;
 }
 
 .banner__timer-element-text {
@@ -113,12 +113,6 @@
 }
 
 @media (max-width: 993px) {
-    .banner__image-bg {
-        top: -75%;
-    }
-}
-
-@media (max-width: 768px) {
     .banner__wrapper {
         flex-direction: column;
         row-gap: 5rem;
@@ -135,11 +129,21 @@
     }
 }
 
+@media (max-width: 600px) {
+    .banner__timer {
+        column-gap: 1.5rem;
+    }
+}
+
 @media (max-width: 500px) {
     .banner__wrapper {
         padding: 5rem 2rem;
     }
     .banner__btn {
         align-self: initial;
+    }
+    .banner__timer {
+        flex-wrap: wrap;
+        row-gap: 1.5rem;
     }
 }

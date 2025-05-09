@@ -1,3 +1,4 @@
+import { Routes, Route } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
@@ -13,17 +14,19 @@ import ProductPage from './pages/ProductPage';
 function App() {
     return (
         <div className="app">
-            {/* <Homepage /> */}
-            {/* <SignUp /> */}
-            {/* <LogIn /> */}
-            {/* <WishlistPage /> */}
-            {/* <NotFoundPage /> */}
-            {/* <CartPage /> */}
-            {/* <CheckoutPage /> */}
-            {/* <AccountPage /> */}
-            {/* <AboutPage /> */}
-            {/* <ContactPage /> */}
-            <ProductPage />
+            <Routes>
+                <Route path="/" element={<Homepage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/signup" element={<SignUp />} />
+                <Route path="/login" element={<LogIn />} />
+                <Route path="/wishlist" element={<WishlistPage />} />
+                <Route path="/not-found" element={<NotFoundPage />} />
+                <Route path="/cart" element={<CartPage />} />
+                <Route path="/checkout" element={<CheckoutPage />} />
+                <Route path="/account" element={<AccountPage />} />
+                <Route path="/product" element={<ProductPage />} />
+            </Routes>
         </div>
     );
 }

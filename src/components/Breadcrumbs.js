@@ -1,12 +1,13 @@
 import './styles/Breadcrumbs.css';
+import { Link } from 'react-router-dom';
 
 function Breadcrumbs({ data }) {
     return (
         <div className="breadcrumbs">
             {data.map((crumb, i) => (
-                <div key={i} className="breadcrumbs__item">
-                    {crumb}
-                </div>
+                <Link to={crumb[1]} key={i} className="breadcrumbs__item">
+                    {crumb[0]}
+                </Link>
             ))}
         </div>
     );

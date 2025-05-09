@@ -1,4 +1,6 @@
 import './styles/ProductItem.css';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import heartIcon from '../icons/heart-regular.svg';
 import eyeIcon from '../icons/eye-regular.svg';
 import trashIcon from '../icons/trash-solid.svg';
@@ -6,6 +8,7 @@ import Rating from 'react-rating';
 
 function ProductItem({ data }) {
     const { id, image, name, priceFull, priceDiscounted, stars, reviews, label, labelType, bottomFlexed, colorChoice, isInWishlist, isInRecommended } = data;
+    const [selectedColor, setSelectedColor] = useState(colorChoice ? colorChoice[0] : ''); // default to first color aka first string in that arr (or nothing)
     let labelClass = '';
     if (labelType === 'green') labelClass = ' label-new';
 
@@ -43,7 +46,7 @@ function ProductItem({ data }) {
         <div className="product">
             <div className="product__top">
                 <div className="product__image-box">
-                    <img src={image} alt="product image" />
+                    <img src={image} alt="product" />
                 </div>
                 <div className="product__add-cart">Add To Cart</div>
                 <div className="product__btns">
@@ -67,13 +70,24 @@ function ProductItem({ data }) {
                 {label && <span className={`product__label${labelClass}`}>{label}</span>}
             </div>
             <div className="product__bottom">
-                <div className="product__name">{name}</div>
+                <Link to="/product" className="product__name">
+                    {name}
+                </Link>
                 {bottomFlexed ? <div className="product__row">{priceAndRating}</div> : priceAndRating}
+
                 {colorChoice && colorChoice.length > 0 && (
                     <div className="product__color-choice">
                         {colorChoice.map((color, i) => (
                             <span key={i} className="product__color">
-                                <input className="product__color-input" type="radio" name={`radio-${id}`} id={`radio-${id}-${i}`} />
+                                <input
+                                    className="product__color-input"
+                                    type="radio"
+                                    name={`radio-${id}`}
+                                    id={`radio-${id}-${i}`}
+                                    value={color}
+                                    checked={selectedColor === color}
+                                    onChange={() => setSelectedColor(color)}
+                                />
                                 <label className="product__color-label" style={{ backgroundColor: color }} htmlFor={`radio-${id}-${i}`}></label>
                             </span>
                         ))}

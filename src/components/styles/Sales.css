@@ -5,10 +5,13 @@
 .sales__wrapper {
     padding-bottom: 7rem;
     border-bottom: 1px solid #999;
+    position: relative;
 }
 
 .sales__top {
     margin-bottom: 6rem;
+    display: flex;
+    column-gap: 6rem;
 }
 
 .sales__bottom {
@@ -26,6 +29,34 @@
     flex: 1 1 270px;
 }
 
+.sales__timer {
+    display: flex;
+    align-items: center;
+}
+
+.sales__timer-element {
+    flex: 0 0 11rem;
+    max-width: 11rem;
+    padding: 2rem;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    border-right: 2px solid white;
+}
+
+.sales__timer-element:last-child {
+    border-right: none;
+}
+
+.sales__timer-element-value {
+    font-weight: bold;
+    font-size: 3rem;
+    margin-bottom: 5px;
+}
+
+.sales__timer-element-text {
+}
+
 /* ========================================== */
 
 @media (max-width: 1182px) {
@@ -36,7 +67,40 @@
         flex-wrap: wrap;
         row-gap: 3rem;
     }
+    .sales__timer-element {
+        flex: 0 0 9rem;
+        max-width: 9rem;
+        padding: 2rem 1rem;
+    }
+    .sales__top {
+        column-gap: 4rem;
+    }
+    .sales__timer-element-text {
+        font-size: 1.5rem;
+    }
 }
 
 @media (max-width: 768px) {
+    .sales__top {
+        flex-wrap: wrap;
+        row-gap: 2rem;
+    }
+    .sales__timer {
+        align-self: center;
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    .sales__timer-element-value {
+        font-size: 2.5rem;
+    }
+    .sales__timer-element-text {
+        font-size: 1.4rem;
+    }
+    .sales__timer-element {
+        flex: 1 1 8rem;
+        /* max-width: 8rem; */
+        padding: 1rem;
+    }
 }

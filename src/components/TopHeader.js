@@ -1,13 +1,26 @@
 import './styles/TopHeader.css';
 
-function TopHeader() {
+function TopHeader({ targetRef }) {
+    const offset = 100; // pixels above the target block
+
+    const handleScroll = () => {
+        if (!targetRef.current) return; // ensuring the ref is defined
+
+        const top = targetRef.current.getBoundingClientRect().top + window.pageYOffset - offset;
+
+        window.scrollTo({
+            top,
+            behavior: 'smooth',
+        });
+    };
+
     return (
         <section className="top-header">
             <div className="container">
                 <div className="top-header__wrapper">
                     <div className="top-header__column">
-                        <span>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</span>
-                        <a href="#">Shop Now</a>
+                        <span>Act swiftly — Flash Sale underway: discounts up to 40% off!</span>
+                        <button onClick={handleScroll}>View Deals</button>
                     </div>
                     <div className="top-header__column">
                         <select name="language" id="language">

@@ -17,7 +17,13 @@ function Checkout() {
     return (
         <section className="checkout">
             <div className="container">
-                <Breadcrumbs data={['Home', 'Cart', 'Checkout']} />
+                <Breadcrumbs
+                    data={[
+                        ['Home', '/'],
+                        ['Cart', '/cart'],
+                        ['Checkout', '/checkout'],
+                    ]}
+                />
                 <div className="checkout__wrapper">
                     <div className="checkout__title">Billing Details</div>
                     <div className="checkout__columns">

@@ -1,4 +1,5 @@
 import './styles/Leadership.css';
+import { Link } from 'react-router-dom';
 import iconTwitter from '../icons/twitter-brands.svg';
 import iconInstagram from '../icons/instagram-brands.svg';
 import iconLinkedIn from '../icons/linkedin-in-brands.svg';
@@ -29,14 +30,14 @@ function Leadership() {
                                 <div className="leadership__person-title">{entry.title}</div>
                                 <ul className="leadership__person-socials">
                                     {[
-                                        [iconTwitter, '#', 'twitter'],
-                                        [iconInstagram, '#', 'instagram'],
-                                        [iconLinkedIn, '#', 'linked in'],
+                                        [iconTwitter, '', 'twitter'],
+                                        [iconInstagram, '', 'instagram'],
+                                        [iconLinkedIn, '', 'linked in'],
                                     ].map((entry, i) => (
                                         <li key={i}>
-                                            <a href={entry[1]}>
+                                            <Link to={entry[1]}>
                                                 <img src={entry[0]} alt={entry[2]} />
-                                            </a>
+                                            </Link>
                                         </li>
                                     ))}
                                 </ul>

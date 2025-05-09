@@ -1,4 +1,11 @@
 import { useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/autoplay';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import './styles/Hero.css';
 import arrowIcon from '../icons/arrow-icon.svg';
 import angleIcon from '../icons/angle-icon.svg';
@@ -51,6 +58,17 @@ function Hero() {
             buttonIcon: arrowIcon,
             bigImage: sliderImg,
             smallerImage: appleLogo,
+            bgColor: 'black',
+        },
+        {
+            id: 2,
+            titleSmall: 'iPhone 20 Series',
+            titleBig: 'How do you like apples?',
+            button: 'Get It!',
+            buttonIcon: arrowIcon,
+            bigImage: sliderImg,
+            smallerImage: appleLogo,
+            bgColor: 'black',
         },
     ];
 
@@ -84,7 +102,7 @@ function Hero() {
                         <ul ref={heroListEl} className="hero__list">
                             {listData.map((entry) => (
                                 <li key={entry.id} className="hero__list-item">
-                                    <a href={entry.link} className="hero__list-link">
+                                    <span className="hero__list-link">
                                         <span>
                                             {entry.name}
                                             {entry.sublist && entry.sublist.length > 0 && <img src={angleIcon} alt="angle icon" />}
@@ -94,45 +112,56 @@ function Hero() {
                                                 <ul className="hero__sublist">
                                                     {entry.sublist.map((subEntry) => (
                                                         <li key={subEntry.id} className="hero__sublist-item">
-                                                            <a href={subEntry.link} className="hero__sublist-link">
+                                                            <Link to={subEntry.link} className="hero__sublist-link">
                                                                 {subEntry.name}
-                                                            </a>
+                                                            </Link>
                                                         </li>
                                                     ))}
                                                 </ul>
                                             </div>
                                         )}
-                                    </a>
+                                    </span>
                                 </li>
                             ))}
                         </ul>
                     </div>
                     <div className="hero__column">
                         <div className="hero__slider">
-                            {sliderData.map((entry) => (
-                                <div key={entry.id} className="hero__banner">
-                                    <div className="hero__banner-column">
-                                        <div className="hero__banner-info">
-                                            <div className="hero__banner-text-box">
-                                                <div className="hero__banner-icon">
-                                                    <img src={entry.smallerImage} alt="slider banner icon" />
+                            <Swiper
+                                slidesPerView={1}
+                                modules={[Autoplay, Navigation, Pagination]}
+                                pagination={{ clickable: true }}
+                                autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+                                loop={true}
+                                className="mySwiper3"
+                            >
+                                {sliderData.map((entry) => (
+                                    <SwiperSlide key={entry.id}>
+                                        <div className="hero__banner" style={{ backgroundColor: entry.bgColor }}>
+                                            <div className="hero__banner-column">
+                                                <div className="hero__banner-info">
+                                                    <div className="hero__banner-text-box">
+                                                        <div className="hero__banner-icon">
+                                                            <img src={entry.smallerImage} alt="slider banner icon" />
+                                                        </div>
+                                                        <div className="hero__banner-text">{entry.titleSmall}</div>
+                                                    </div>
+                                                    <div className="hero__banner-title">{entry.titleBig}</div>
+                                                    <Link className="hero__banner-btn">
+                                                        <span>{entry.button}</span>
+                                                        <img src={arrowIcon} alt="arrow icon" />
+                                                    </Link>
                                                 </div>
-                                                <div className="hero__banner-text">{entry.titleSmall}</div>
                                             </div>
-                                            <div className="hero__banner-title">{entry.titleBig}</div>
-                                            <button className="hero__banner-btn">
-                                                <span>{entry.button}</span>
-                                                <img src={arrowIcon} alt="arrow icon" />
-                                            </button>
+                                            <div className="hero__banner-column">
+                                                <div className="hero__banner-img-box">
+                                                    <img src={entry.bigImage} alt="banner img" className="hero__banner-img" />
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="hero__banner-column">
-                                        <div className="hero__banner-img-box">
-                                            <img src={entry.bigImage} alt="banner img" className="hero__banner-img" />
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
                         </div>
                     </div>
                 </div>

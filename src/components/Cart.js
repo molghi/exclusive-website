@@ -6,12 +6,13 @@ import product1Img from '../images/monitor.png';
 import product2Img from '../images/gamepad.png';
 import xIcon from '../icons/xmark-solid.svg';
 
+const data = [
+    { id: 1, image: product1Img, name: 'LCD Monitor', price: 750, quantity: 1 },
+    { id: 2, image: product2Img, name: 'H1 Gamepad', price: 550, quantity: 2 },
+];
+
 function Cart() {
     const columns = ['Product', 'Price', 'Quantity', 'Subtotal'];
-    const data = [
-        { id: 1, image: product1Img, name: 'LCD Monitor', price: 750, quantity: 1 },
-        { id: 2, image: product2Img, name: 'H1 Gamepad', price: 550, quantity: 2 },
-    ];
 
     const [quantities, setQuantities] = useState(data.map((x) => ({ quantity: x.quantity })));
     const [subtotals, setSubtotals] = useState(data.map((x) => x.price * x.quantity));
@@ -44,7 +45,12 @@ function Cart() {
     return (
         <section className="cart">
             <div className="container">
-                <Breadcrumbs data={['Home', 'Cart']} />
+                <Breadcrumbs
+                    data={[
+                        ['Home', '/'],
+                        ['Cart', '/cart'],
+                    ]}
+                />
                 <div className="cart__wrapper">
                     <div className="cart__table">
                         <div className="cart__table-headers">

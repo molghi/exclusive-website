@@ -30,6 +30,7 @@ function ProductPage() {
             label: '-25%',
             labelType: 'discount',
         },
+        // { id: 5, image: product2Img, name: 'AK-91 Wired Keyboard', priceFull: 1160, priceDiscounted: 960, stars: 4, reviews: 75, label: '-35%', labelType: 'discount' },
     ];
 
     const dataProduct = {
@@ -41,7 +42,7 @@ function ProductPage() {
         description: 'PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.',
         colors: ['#eee', 'blue'],
         sizes: ['XS', 'S', 'M', 'L', 'XL'],
-        images: [gamepadImg1, gamepadImg2, gamepadImg3, gamepadImg4],
+        images: [gamepadImg1, gamepadImg2, gamepadImg3, gamepadImg4, gamepadImg3],
     };
 
     return (

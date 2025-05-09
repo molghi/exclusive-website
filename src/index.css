@@ -26,8 +26,6 @@ html {
 }
 
 body {
-    /* background-color: var(--bg); */
-    /* color: var(--accent); */
     font-family: Poppins, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 1.6rem;
 }
@@ -41,26 +39,12 @@ textarea {
     color: inherit;
     font-family: inherit;
     font-size: inherit;
-    /* border: 1px solid var(--accent); */
+
     outline: none;
-    /* transition: box-shadow 0.3s; */
 }
 
-button {
-    /* border: none; */
-    /* border-bottom: 1px solid var(--accent); */
-    /* padding-bottom: 2px; */
-}
-button:hover {
-    /* border-bottom: transparent; */
-}
 button:active {
     opacity: 0.5;
-}
-
-input:focus,
-textarea:focus {
-    /* box-shadow: 0 0 10px var(--accent); */
 }
 
 textarea {
@@ -78,34 +62,35 @@ input::placeholder {
     opacity: 1;
 }
 
+a {
+    text-decoration: none;
+}
+
 /*  ============================================================================================= */
 
 .container {
     max-width: 1170px; /* the width of the content, the container width */
     margin: 0 auto;
     width: 100%;
+}
 
-    @media (max-width: 1182px) {
+@media (max-width: 1182px) {
+    .container {
         max-width: 970px;
     }
+}
 
-    @media (max-width: 993px) {
-        /* for tablets, 1024х768px is a size of a little PC monitor or iPad */
+@media (max-width: 993px) {
+    .container {
         max-width: 750px;
     }
+}
 
-    @media (max-width: 768px) {
-        /* for large phones; less than 768px is the hamburger menu time */
+@media (max-width: 768px) {
+    .container {
         max-width: none;
         padding: 0 10px;
     }
-
-    /* @media (max-width: 480px) { */
-    /* for small phones */
-    /* max-width: none; */
-    /* min-width: 320px; */
-    /* padding: 0 10px; */
-    /* } */
 }
 
 /*  ============================================================================================= */

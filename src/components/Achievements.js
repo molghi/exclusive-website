@@ -1,5 +1,5 @@
 import './styles/Achievements.css';
-import iconShop from '../icons/icon-shop.svg';
+// import iconShop from '../icons/icon-shop.svg';
 import iconShop2 from '../icons/store-solid.svg';
 import iconDollar from '../icons/dollar-sign-solid.svg';
 import iconBag from '../icons/bag-shopping-solid.svg';
